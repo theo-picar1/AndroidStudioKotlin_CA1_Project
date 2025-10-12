@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mobile_intergration_ca1.ui.theme.Mobile_Intergration_CA1Theme
 
-class MainActivity : ComponentActivity() {
+class App1 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
 fun FuelCostCalculator(modifier: Modifier = Modifier) {
     var distance by remember { mutableStateOf("") }
