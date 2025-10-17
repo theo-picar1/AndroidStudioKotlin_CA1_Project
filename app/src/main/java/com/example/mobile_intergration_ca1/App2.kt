@@ -40,6 +40,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import com.example.mobile_intergration_ca1.data.Datasource
 
@@ -100,6 +102,8 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
 
 @Composable
 fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    var isExpanded by remember { mutableStateOf(false) }
+
     Card(modifier = modifier) {
         Column() {
             Image(
@@ -110,11 +114,33 @@ fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .height(194.dp),
             )
+
             Text(
                 text = LocalContext.current.getString(affirmation.stringResourceId),
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.headlineSmall
             )
+
+            if (isExpanded) {
+                Text(
+                    text = "Description",
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+
+            Button(
+                onClick = { isExpanded = !isExpanded },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF6200EE),
+                    contentColor = Color.White
+                ),
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth()
+            ) {
+                Text(text = if (isExpanded) "Show less" else "Read more")
+            }
         }
     }
 }
