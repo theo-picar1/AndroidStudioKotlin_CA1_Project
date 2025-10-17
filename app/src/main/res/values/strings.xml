@@ -1,13 +1,23 @@
 <resources>
     <string name="app_name">Mobile_Intergration_CA1</string>
-    <string name="affirmation1">I am strong.</string>
-    <string name="affirmation2">I believe in myself.</string>
-    <string name="affirmation3">Each day is a new opportunity to grow and be a better version of myself.</string>
-    <string name="affirmation4">Every challenge in my life is an opportunity to learn from.</string>
-    <string name="affirmation5">I have so much to be grateful for.</string>
-    <string name="affirmation6">Good things are always coming into my life.</string>
-    <string name="affirmation7">New opportunities await me at every turn.</string>
-    <string name="affirmation8">I have the courage to follow my heart.</string>
-    <string name="affirmation9">Things will unfold at precisely the right time.</string>
-    <string name="affirmation10">I will be present in all the moments that this day brings.</string>
+    <string name="australia_title">Australia</string>
+    <string name="austria_title">Austria</string>
+    <string name="greece_title">Greece</string>
+    <string name="iceland_title">Iceland</string>
+    <string name="italy_title">Italy</string>
+    <string name="new_zealand_title">New Zealand</string>
+    <string name="norway_title">Norway</string>
+    <string name="spain_title">Spain</string>
+    <string name="switzerland_title">Switzerland</string>
+    <string name="thailand_title">Thailand</string>
+    <string name="australia_desc">Australia is a land of breathtaking contrasts, from its golden beaches and crystal-clear waters to the rugged outback and unique wildlife. Its sunny skies and vast landscapes inspire adventure, freedom, and a deep appreciation for nature’s beauty.</string>
+    <string name="austria_desc">Austria enchants with its snow-capped Alps, charming villages, and rich musical heritage. The blend of history, culture, and stunning natural scenery creates a sense of elegance, creativity, and tranquility that leaves a lasting impression.</string>
+    <string name="greece_desc">Greece captivates with its ancient ruins, sun-drenched islands, and vibrant traditions. The combination of history, breathtaking coastlines, and warm culture inspires reflection, curiosity, and a love for beauty in every day.</string>
+    <string name="iceland_desc">Iceland fascinates with its dramatic volcanic landscapes, towering glaciers, and mesmerizing northern lights. Its raw, untouched nature encourages exploration, wonder, and a sense of awe at the power and serenity of the natural world.</string>
+    <string name="italy_desc">Italy delights with its rich artistic legacy, historic cities, delicious cuisine, and romantic landscapes. From rolling vineyards to iconic landmarks, it inspires passion, creativity, and a deep appreciation for life’s simple pleasures.</string>
+    <string name="new_zealand_desc">New Zealand inspires with its lush forests, serene lakes, and adventure-filled outdoors. The stunning scenery and vibrant wildlife evoke a sense of freedom, exploration, and harmony with nature, making every journey unforgettable.</string>
+    <string name="norway_desc">Norway mesmerizes with its dramatic fjords, towering mountains, and the magical midnight sun. The peaceful landscapes and natural wonders foster reflection, calm, and a deep respect for the beauty of the world.</string>
+    <string name="spain_desc">Spain charms with its lively culture, sun-soaked beaches, and rich culinary traditions. From festive cities to serene countryside, it inspires joy, courage, and a zest for life that is felt in every corner.</string>
+    <string name="switzerland_desc">Switzerland impresses with its pristine alpine peaks, sparkling lakes, and charming towns. Its serene beauty, precision, and harmony of nature and culture encourage clarity, calm, and a sense of balance in life.</string>
+    <string name="thailand_desc">Thailand captivates with its tropical beaches, vibrant traditions, and flavorful cuisine. Its rich culture and natural beauty invite curiosity, mindfulness, and a joyful appreciation of life’s simple and colorful moments.</string>
 </resources>

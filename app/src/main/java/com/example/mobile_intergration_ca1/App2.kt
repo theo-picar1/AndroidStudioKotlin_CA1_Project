@@ -116,14 +116,14 @@ fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
             )
 
             Text(
-                text = LocalContext.current.getString(affirmation.stringResourceId),
+                text = LocalContext.current.getString(affirmation.titleResourceId),
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.headlineSmall
             )
 
             if (isExpanded) {
                 Text(
-                    text = "Description",
+                    text = LocalContext.current.getString(affirmation.stringResourceId),
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                     style = MaterialTheme.typography.bodyMedium
                 )
