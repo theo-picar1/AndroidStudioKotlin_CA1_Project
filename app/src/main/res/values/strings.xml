@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Mobile_Intergration_CA1</string>
     <string name="app1_icon_desc">Fuel Cost Calculator Icon</string>
-    <string name="australia_title">Australia</string>
-    <string name="austria_title">Austria</string>
-    <string name="greece_title">Greece</string>
-    <string name="iceland_title">Iceland</string>
-    <string name="italy_title">Italy</string>
-    <string name="new_zealand_title">New Zealand</string>
-    <string name="norway_title">Norway</string>
-    <string name="spain_title">Spain</string>
-    <string name="switzerland_title">Switzerland</string>
-    <string name="thailand_title">Thailand</string>
+    <string name="australia_title">#1 - Australia</string>
+    <string name="austria_title">#2 - Austria</string>
+    <string name="greece_title">#3 - Greece</string>
+    <string name="iceland_title">#4 - Iceland</string>
+    <string name="italy_title">#5 - Italy</string>
+    <string name="new_zealand_title">#6 - New Zealand</string>
+    <string name="norway_title">#7 - Norway</string>
+    <string name="spain_title">#8 - Spain</string>
+    <string name="switzerland_title">#9 - Switzerland</string>
+    <string name="thailand_title">#10 - Thailand</string>
     <string name="australia_desc">Australia is a land of breathtaking contrasts, from its golden beaches and crystal-clear waters to the rugged outback and unique wildlife. Its sunny skies and vast landscapes inspire adventure, freedom, and a deep appreciation for nature’s beauty.</string>
     <string name="austria_desc">Austria enchants with its snow-capped Alps, charming villages, and rich musical heritage. The blend of history, culture, and stunning natural scenery creates a sense of elegance, creativity, and tranquility that leaves a lasting impression.</string>
     <string name="greece_desc">Greece captivates with its ancient ruins, sun-drenched islands, and vibrant traditions. The combination of history, breathtaking coastlines, and warm culture inspires reflection, curiosity, and a love for beauty in every day.</string>

@@ -26,6 +26,8 @@ import androidx.compose.ui.unit.dp
 import com.example.mobile_intergration_ca1.ui.theme.Mobile_Intergration_CA1Theme
 import Affirmation
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
@@ -43,6 +45,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.mobile_intergration_ca1.data.Datasource
 
 class App2 : ComponentActivity() {
@@ -70,17 +74,11 @@ class App2 : ComponentActivity() {
 
 @Composable
 fun ScrollableApp() {
-    val layoutDirection = LocalLayoutDirection.current
     Surface(
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding()
-            .padding(
-                start = WindowInsets.safeDrawing.asPaddingValues()
-                    .calculateStartPadding(layoutDirection),
-                end = WindowInsets.safeDrawing.asPaddingValues()
-                    .calculateEndPadding(layoutDirection),
-            ),
+            .padding(20.dp)
     ) {
         ScrollableList(
             affirmationList = Datasource().loadAffirmations(),
@@ -90,11 +88,13 @@ fun ScrollableApp() {
 
 @Composable
 fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier.fillMaxWidth()
+    ) {
         items(affirmationList) { affirmation ->
             MotivationCard(
-                affirmation = affirmation,
-                modifier = Modifier.padding(8.dp)
+                affirmation = affirmation
             )
         }
     }
@@ -104,8 +104,12 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
 fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
     var isExpanded by remember { mutableStateOf(false) }
 
-    Card(modifier = modifier) {
-        Column() {
+    Card(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Column(
+            modifier = modifier.fillMaxWidth()
+        ) {
             Image(
                 painter = painterResource(affirmation.imageResourceId),
                 contentDescription = stringResource(affirmation.stringResourceId),
@@ -115,31 +119,40 @@ fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
                     .height(194.dp),
             )
 
-            Text(
-                text = LocalContext.current.getString(affirmation.titleResourceId),
-                modifier = Modifier.padding(16.dp),
-                style = MaterialTheme.typography.headlineSmall
-            )
-
-            if (isExpanded) {
-                Text(
-                    text = LocalContext.current.getString(affirmation.stringResourceId),
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
-
-            Button(
-                onClick = { isExpanded = !isExpanded },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF6200EE),
-                    contentColor = Color.White
-                ),
+            Box(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(20.dp)
                     .fillMaxWidth()
             ) {
-                Text(text = if (isExpanded) "Show less" else "Read more")
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = LocalContext.current.getString(affirmation.titleResourceId),
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                    )
+
+                    if (isExpanded) {
+                        Text(
+                            text = LocalContext.current.getString(affirmation.stringResourceId),
+                            fontSize = 18.sp,
+                            color = Color.Black
+                        )
+                    }
+
+                    Button(
+                        onClick = { isExpanded = !isExpanded },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF6200EE),
+                            contentColor = Color.White
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(text = if (isExpanded) "Show less" else "Read more")
+                    }
+                }
             }
         }
     }
