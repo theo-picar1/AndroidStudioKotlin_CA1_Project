@@ -149,8 +149,7 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                 val distance = inputDistance.toDoubleOrNull() ?: 0.0
                 val efficiency = inputEfficiency.toDoubleOrNull() ?: 0.0
                 val price = inputPrice.toDoubleOrNull() ?: 0.0
-                val totalDistance = if (isRoundTrip) distance * 2 else distance
-                val cost = if (efficiency != 0.0) (totalDistance / 100) * efficiency * price else 0.0
+                val cost = calculateFuelCost(distance, efficiency, price, isRoundTrip)
                 totalCost = "Total Cost: €${"%.2f".format(cost)}"
             },
             modifier = Modifier
@@ -192,4 +191,15 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
             }
         }
     }
+}
+
+// Separated for UnitTesting
+fun calculateFuelCost(
+    distance: Double,
+    efficiency: Double,
+    price: Double,
+    isRoundTrip: Boolean
+): Double {
+    val totalDistance = if (isRoundTrip) distance * 2 else distance
+    return if (efficiency != 0.0) (totalDistance / 100) * efficiency * price else 0.0
 }
