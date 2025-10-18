@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,8 +13,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
@@ -29,7 +32,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.mobile_intergration_ca1.ui.theme.Mobile_Intergration_CA1Theme
 
 class App1 : ComponentActivity() {
@@ -64,45 +72,76 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
             .statusBarsPadding(),
         horizontalAlignment = Alignment.Start
     ) {
-        OutlinedTextField(
-            value = inputDistance,
-            onValueChange = { inputDistance = it },
-            label = { Text("Distance (km)") },
+        Box(
             modifier = Modifier
-                .padding(top = 4.dp)
                 .fillMaxWidth()
-        )
-
-        OutlinedTextField(
-            value = inputEfficiency,
-            onValueChange = { inputEfficiency = it },
-            label = { Text("Fuel Efficiency (L/100km)") },
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .fillMaxWidth()
-        )
-
-        OutlinedTextField(
-            value = inputPrice,
-            onValueChange = { inputPrice = it },
-            label = { Text("Fuel Price (per L)") },
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .fillMaxWidth()
-        )
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier.padding(top = 8.dp)
+                .padding(16.dp)
         ) {
-            // Has left padding for some reason
-            Checkbox(
-                checked = isRoundTrip,
-                onCheckedChange = { isRoundTrip = it },
-                modifier = Modifier.padding(0.dp)
-            )
-            Text("Round Trip")
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.app1_icon),
+                    contentDescription = stringResource(R.string.app1_icon_desc),
+                    modifier = Modifier.size(40.dp)
+                )
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                Text(
+                    text = "Fuel Cost Calculator",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalAlignment = Alignment.Start
+            ) {
+                OutlinedTextField(
+                    value = inputDistance,
+                    onValueChange = { inputDistance = it },
+                    label = { Text("Distance (km)") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                OutlinedTextField(
+                    value = inputEfficiency,
+                    onValueChange = { inputEfficiency = it },
+                    label = { Text("Fuel Efficiency (L/100km)") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                OutlinedTextField(
+                    value = inputPrice,
+                    onValueChange = { inputPrice = it },
+                    label = { Text("Fuel Price (per L)") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    // Has left padding for some reason
+                    Checkbox(
+                        checked = isRoundTrip,
+                        onCheckedChange = { isRoundTrip = it },
+                        modifier = Modifier.padding(0.dp)
+                    )
+                    Text("Round Trip")
+                }
+            }
         }
 
         Button(
@@ -118,7 +157,11 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                 .padding(top = 12.dp)
                 .fillMaxWidth()
         ) {
-            Text("Calculate")
+            Text(
+                text = "Calculate",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
 
         Box(
@@ -132,7 +175,9 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = totalCost,
-                    style = MaterialTheme.typography.titleMedium
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
                 )
 
                 Spacer(modifier = Modifier.width(8.dp))
