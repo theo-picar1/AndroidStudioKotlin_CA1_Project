@@ -73,23 +73,23 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.Start
     ) {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxWidth()
             ) {
                 Image(
                     painter = painterResource(R.drawable.app1_icon),
                     contentDescription = stringResource(R.string.app1_icon_desc),
-                    modifier = Modifier.size(40.dp)
+                    modifier = modifier.size(40.dp)
                 )
 
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = modifier.width(8.dp))
 
                 Text(
                     text = "Fuel Cost Calculator",
@@ -100,7 +100,7 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
         }
 
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
         ) {
@@ -112,21 +112,21 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                     value = inputDistance,
                     onValueChange = { inputDistance = it },
                     label = { Text("Distance (km)") },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = modifier.fillMaxWidth()
                 )
 
                 OutlinedTextField(
                     value = inputEfficiency,
                     onValueChange = { inputEfficiency = it },
                     label = { Text("Fuel Efficiency (L/100km)") },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = modifier.fillMaxWidth()
                 )
 
                 OutlinedTextField(
                     value = inputPrice,
                     onValueChange = { inputPrice = it },
                     label = { Text("Fuel Price (per L)") },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = modifier.fillMaxWidth()
                 )
 
                 Row(
@@ -137,7 +137,7 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                     Checkbox(
                         checked = isRoundTrip,
                         onCheckedChange = { isRoundTrip = it },
-                        modifier = Modifier.padding(0.dp)
+                        modifier = modifier.padding(0.dp)
                     )
                     Text("Round Trip")
                 }
@@ -152,7 +152,7 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                 val cost = calculateFuelCost(distance, efficiency, price, isRoundTrip)
                 totalCost = "Total Cost: €${"%.2f".format(cost)}"
             },
-            modifier = Modifier
+            modifier = modifier
                 .padding(top = 12.dp)
                 .fillMaxWidth()
         ) {
@@ -164,7 +164,7 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
         }
 
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxSize()
                 .padding(top = 16.dp)
         ) {
@@ -176,10 +176,10 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                     text = totalCost,
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
+                    modifier = modifier.padding(top = 4.dp, bottom = 4.dp)
                 )
 
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = modifier.width(8.dp))
 
                 if (totalCost.isNotEmpty()) {
                     Badge(
