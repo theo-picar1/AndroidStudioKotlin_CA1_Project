@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.mobile_intergration_ca1.data.Datasource
+import android.util.Log
 
 class App2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +63,7 @@ class App2 : ComponentActivity() {
 //@Preview
 //@Composable
 //private fun AffirmationCardPreview() {
-//    MotivationCard(Affirmation(R.string.affirmation1, R.drawable.image1))
+//    CountryCard(Affirmation(R.string.affirmation1, R.drawable.image1))
 //}
 
 @Composable
@@ -110,7 +111,10 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
             ) {
                 RadioButton(
                     selected = radioOption == "All",
-                    onClick = { radioOption = "All" }
+                    onClick = {
+                        radioOption = "All"
+                        Log.d("ScrollableList", "Choosing all countries in the continent $radioOption")
+                    }
                 )
                 Text("All")
             }
@@ -121,7 +125,10 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
             ) {
                 RadioButton(
                     selected = radioOption == "Europe",
-                    onClick = { radioOption = "Europe" }
+                    onClick = {
+                        radioOption = "Europe"
+                        Log.d("ScrollableList", "Choosing all countries in the continent $radioOption")
+                    }
                 )
                 Text("Europe")
             }
@@ -132,7 +139,10 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
             ) {
                 RadioButton(
                     selected = radioOption == "Asia",
-                    onClick = { radioOption = "Asia" }
+                    onClick = {
+                        radioOption = "Asia"
+                        Log.d("ScrollableList", "Choosing all countries in the continent $radioOption")
+                    }
                 )
                 Text("Asia")
             }
@@ -142,7 +152,7 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
             modifier = modifier.fillMaxWidth()
         ) {
             items(list) { affirmation ->
-                MotivationCard(
+                CountryCard(
                     affirmation = affirmation
                 )
             }
@@ -151,8 +161,9 @@ fun ScrollableList(affirmationList: List<Affirmation>, modifier: Modifier = Modi
 }
 
 @Composable
-fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+fun CountryCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
     var isExpanded by remember { mutableStateOf(false) }
+    val title = LocalContext.current.getString(affirmation.titleResourceId)
 
     Card(
         modifier = modifier.fillMaxWidth()
@@ -193,7 +204,10 @@ fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
                     }
 
                     Button(
-                        onClick = { isExpanded = !isExpanded },
+                        onClick = {
+                            isExpanded = !isExpanded
+                            logCardMessage(isExpanded, title)
+                        },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF6200EE),
                             contentColor = Color.White
@@ -205,5 +219,14 @@ fun MotivationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
                 }
             }
         }
+    }
+}
+
+fun logCardMessage(isExpanded: Boolean, title: String) {
+    if(isExpanded) {
+        Log.d("CountryCard", "Expanded the '$title' card")
+    }
+    else {
+        Log.d("CountryCard", "Closed the '$title' card")
     }
 }
