@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobile_Intergration_CA1">
         <activity
-            android:name=".App2"
+            android:name=".SplashScreen"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Mobile_Intergration_CA1">
@@ -21,6 +21,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".App1"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Mobile_Intergration_CA1">
         </activity>
     </application>
 
