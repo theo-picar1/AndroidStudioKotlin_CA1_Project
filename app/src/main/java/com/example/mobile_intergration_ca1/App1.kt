@@ -128,16 +128,18 @@ fun FuelCostCalculator(modifier: Modifier = Modifier) {
                 )
 
                 Row(
+                    modifier = modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
+                    horizontalArrangement = Arrangement.End
                 ) {
+                    Text("Round Trip")
+
                     // Has left padding for some reason
                     Checkbox(
                         checked = isRoundTrip,
                         onCheckedChange = { isRoundTrip = it },
                         modifier = modifier.padding(0.dp)
                     )
-                    Text("Round Trip")
                 }
             }
         }
